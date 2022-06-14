@@ -2,10 +2,10 @@
   "name": "zap-protocols",
   "version": "1.0.0",
   "description": "Protocols to speed up your web3 development workflow.",
-  "source": "src/index.ts",
-  "main": "dist/main/index.js",
-  "module": "dist/module/index.js",
-  "types": "dist/module/index.d.ts",
+  "source": "typechain/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/typechain/index.d.ts",
   "files": [
     "contracts/",
     "abis/",
@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "build": "yarn hardhat:compile && yarn copy-abis",
+    "build:lib": "yarn run build && tsup && tsc",
     "format": "prettier --write \"./**/*.{ts,tsx,json,md,sol}\"",
     "lint": "solhint 'contracts/**/*.sol'",
     "clean": "yarn hardhat:clean && rimraf artifacts dist typechain abi build",
@@ -21,9 +22,6 @@
     "copy-abis": "ts-node copy-abis.ts",
     "hardhat:compile": "hardhat compile",
     "hardhat:clean": "hardhat clean",
-    "build:lib": "yarn run build && yarn run build:cjs && yarn run build:esm",
-    "build:cjs": "tsc --outDir ./dist/main",
-    "build:esm": "tsc --module esnext --outDir ./dist/module",
     "prepare": "husky install"
   },
   "dependencies": {},
@@ -51,6 +49,7 @@
     "solhint": "^3.3.7",
     "solhint-plugin-prettier": "^0.0.5",
     "ts-node": "^10.8.1",
+    "tsup": "^6.1.2",
     "typechain": "^8.1.0",
     "typescript": "^4.7.3"
   },

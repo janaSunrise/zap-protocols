@@ -17,7 +17,7 @@
 
     // Directories
     "rootDir": ".",
-    "outDir": "./dist/main",
+    "outDir": "./dist",
 
     // output .d.ts declaration files for consumers
     "declaration": true,
@@ -53,7 +53,7 @@
     "forceConsistentCasingInFileNames": true,
 
     // enable output emitting
-    "noEmit": false,
+    "emitDeclarationOnly": true,
 
     // import ts-lib helpers once
     "importHelpers": true
