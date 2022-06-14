@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
   "contractName": "EncryptDecryptable",
-  "sourceName": "contracts/lib/EncryptDecryptable.sol",
+  "sourceName": "contracts/encryption/EncryptDecryptable.sol",
   "abi": [
     {
       "inputs": [

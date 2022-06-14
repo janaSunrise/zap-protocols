@@ -1,16 +1,16 @@
 {
   "_format": "hh-sol-artifact-1",
-  "contractName": "TransferRestrictable",
-  "sourceName": "contracts/transfer/TransferRestrictable.sol",
+  "contractName": "SimpleOwnable",
+  "sourceName": "contracts/access/SimpleOwnable.sol",
   "abi": [
     {
       "inputs": [],
-      "name": "isTransferAllowed",
+      "name": "owner",
       "outputs": [
         {
-          "internalType": "bool",
+          "internalType": "address",
           "name": "",
-          "type": "bool"
+          "type": "address"
         }
       ],
       "stateMutability": "view",
@@ -19,12 +19,12 @@
     {
       "inputs": [
         {
-          "internalType": "bool",
-          "name": "_allowsTransfer",
-          "type": "bool"
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
         }
       ],
-      "name": "setAllowsTransfer",
+      "name": "transferOwnership",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
