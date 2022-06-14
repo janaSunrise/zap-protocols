@@ -4,6 +4,8 @@ pragma solidity ^0.8.0;
 abstract contract SimpleOwnable {
     address private _owner;
 
+    event OwnerTransferred(address indexed from, address indexed to);
+
     modifier onlyOwner() {
         require(_owner == msg.sender, "SimpleOwnable: Not owner");
         _;
@@ -22,6 +24,11 @@ abstract contract SimpleOwnable {
             newOwner != address(0),
             "SimpleOwnable: New owner cannot be zero address"
         );
+
+        address oldOwner = _owner;
+
         _owner = newOwner;
+
+        emit OwnerTransferred(oldOwner, newOwner);
     }
 }
