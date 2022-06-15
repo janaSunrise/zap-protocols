@@ -9,25 +9,23 @@ abstract contract AdminEnumerable {
         _;
     }
 
+    modifier onlyAuthorizedAdminControl() {
+        require(
+            _isAuthorizedForAdminControl(msg.sender),
+            "AdminEnumerable: Not authorized for admin control"
+        );
+        _;
+    }
+
     constructor() {
         admins[msg.sender] = true;
     }
 
-    function grantAdmin(address to) public virtual {
-        require(
-            _isAuthorizedForAdminControl(msg.sender),
-            "AdminEnumerable: Not authorized for admin control"
-        );
-
+    function grantAdmin(address to) public virtual onlyAuthorizedAdminControl {
         admins[to] = true;
     }
 
-    function revokeAdmin(address to) public virtual {
-        require(
-            _isAuthorizedForAdminControl(msg.sender),
-            "AdminEnumerable: Not authorized for admin control"
-        );
-
+    function revokeAdmin(address to) public virtual onlyAuthorizedAdminControl {
         admins[to] = false;
     }
 
