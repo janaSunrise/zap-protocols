@@ -4,9 +4,9 @@ pragma solidity ^0.8.0;
 import "@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol";
 import "@uniswap/v3-periphery/contracts/libraries/TransferHelper.sol";
 
-import "../utils/Constants.sol";
 import "./CurrencyWrapper.sol";
 import "./CurrencyTransfer.sol";
+import "../utils/Constants.sol";
 
 library CurrencySwapper {
     function swap(
